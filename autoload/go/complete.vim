@@ -228,11 +228,7 @@ function! go#complete#Complete(findstart, base) abort
     "findstart = 0 when we need to return the list of completions
   else
     let s = getline(".")[col('.') - 1]
-    if s =~ '[(){}\{\}]'
-      return map(copy(s:completions[1]), 's:trim_bracket(v:val)')
-    endif
-
-    return s:completions[1]
+    return map(copy(s:completions[1]), 's:trim_bracket(v:val)')
   endif
 endfunction
 
